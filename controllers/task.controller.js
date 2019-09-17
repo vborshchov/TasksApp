@@ -13,3 +13,10 @@ exports.task_create = function(req, res, next) {
     res.send("Task Created successfully");
   });
 };
+
+exports.task_show = function(req, res, next) {
+  Task.findById(req.params.id, function(err, product) {
+    if (err) return next(err);
+    res.send(product);
+  });
+};
